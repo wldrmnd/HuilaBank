@@ -49,5 +49,9 @@ public class Transaction {
         this.typeOfPayment = typeOfPayment;
     }
 
-
+    @Override
+    public String toString() {
+        return id + "." + " " + cardHolder.getName() + " " + cardHolder.getSurname() +
+                " " + amount.getNumberAmount() + amount.getCurrency();
+    }
 }

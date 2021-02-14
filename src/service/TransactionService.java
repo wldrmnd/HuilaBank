@@ -11,10 +11,19 @@ public class TransactionService {
 
     private TransactionRepo repo;
 
+    public TransactionService() {
+        this.repo = new TransactionRepo();
+    }
+
     public boolean addTransaction(Transaction transaction) {
         //TODO: check!!
         repo.addTransaction(transaction);
         return true;
+    }
+
+    public List<Transaction> getAll() {
+        //TODO: check!!
+        return repo.getAll();
     }
 
     public boolean editTransaction(Long id, Transaction transactionFromMenu) {
