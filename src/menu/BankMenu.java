@@ -22,19 +22,16 @@ public class BankMenu {
 
         transactionService = new TransactionService();
         printBank();
-
     }
 
     private void printBank() {
         System.out.println("Привет! Ты попал в хуевый банк!");
-        System.out.println("1. Добавить платёж");
-        System.out.println("2. Вывести все платежи");
         pressUserFromConsole();
-        printBank();
-
     }
 
     private void pressUserFromConsole() {
+        System.out.println("1. Добавить платёж");
+        System.out.println("2. Вывести все платежи");
         Scanner in = new Scanner(System.in);
         int userInput = in.nextInt();
 
@@ -46,6 +43,7 @@ public class BankMenu {
         if (userInput == 2){
             printTransactions(transactionService.getAll());
         }
+        pressUserFromConsole();
     }
 
     private void printTransactions(List<Transaction> all) {
@@ -58,14 +56,17 @@ public class BankMenu {
         Scanner in = new Scanner(System.in);
         Transaction transaction = new Transaction();
 
-        transaction.setId(new Long(8));
-        transaction.setTypeOfPayment("Visa");
-
-        transaction.setAmount(new Amount('$', 55.5));
-        transaction.setCardHolder(new CardHolder("Pavel", "Rud"));
-
-        transaction.setTime(new TransactionTime(new GregorianCalendar(2015, 01, 05),
-                (new GregorianCalendar(2020, 6, 01))));
+        System.out.println("Введите число: ");
+        transaction.setId(new Long(in.next()));
+        System.out.println("Какая у вас карта?(Visa/MasterCard");
+        transaction.setTypeOfPayment(in.next());
+        System.out.println("Введите валюту и сумму перевода: ");
+        transaction.setAmount(new Amount(in.next(), in.nextDouble()));
+        System.out.println("Ваше имя и фамилия");
+        transaction.setCardHolder(new CardHolder(in.next(), in.next()));
+        System.out.println("Введите дату хранения платежа: ");
+        transaction.setTime(new TransactionTime(new GregorianCalendar(2021, 1, 31),
+                (new GregorianCalendar(in.nextInt(), in.nextInt(), in.nextInt()))));
 
         return transaction;
     }

@@ -2,15 +2,15 @@ package entity;
 
 public class Amount {
 
-    private char currency;
+    private String currency;
     private double numberAmount;
 
-    public Amount(char currency, double numberAmount) {
+    public Amount(String currency, double numberAmount) {
         this.currency = currency;
         this.numberAmount = numberAmount;
     }
 
-    public char getCurrency() {
+    public String getCurrency() {
         return currency;
     }
 

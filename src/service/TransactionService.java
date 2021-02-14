@@ -17,8 +17,11 @@ public class TransactionService {
 
     public boolean addTransaction(Transaction transaction) {
         //TODO: check!!
-        repo.addTransaction(transaction);
-        return true;
+        if (TransactionVerification.checkTransaction(transaction)){
+            repo.addTransaction(transaction);
+            return true;
+        }
+        return false;
     }
 
     public List<Transaction> getAll() {

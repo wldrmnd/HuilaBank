@@ -6,6 +6,6 @@ import menu.BankMenu;
 //4. запушить все нахуй
 public class Client {
     public static void main(String[] args) {
-        BankMenu bankMenu = new BankMenu();
+        new BankMenu();
     }
 }
