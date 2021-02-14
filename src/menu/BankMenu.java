@@ -1,9 +1,6 @@
 package menu;
 
-import entity.Amount;
-import entity.CardHolder;
-import entity.Transaction;
-import entity.TransactionTime;
+import entity.*;
 import repo.TransactionRepo;
 import service.TransactionService;
 
@@ -56,9 +53,8 @@ public class BankMenu {
         Scanner in = new Scanner(System.in);
         Transaction transaction = new Transaction();
 
-        System.out.println("Введите число: ");
-        transaction.setId(new Long(in.next()));
-        System.out.println("Какая у вас карта?(Visa/MasterCard");
+        transaction.setId(new Id());
+        System.out.println("Какая у вас карта?(Visa/MasterCard)");
         transaction.setTypeOfPayment(in.next());
         System.out.println("Введите валюту и сумму перевода: ");
         transaction.setAmount(new Amount(in.next(), in.nextDouble()));
